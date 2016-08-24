@@ -1,6 +1,6 @@
 #!/bin/bash
 
-birthdate=$(date -d "25 August 1991")
+birthdate="25 August 1991"
 
 #Using day and month of date, since %j option won't work on leap years
 if [[ $(date -d "$birthdate" +%d\ %B) == $(date +%d\ %B) ]] ; then
