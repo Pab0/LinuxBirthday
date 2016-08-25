@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 birthdate="25 August 1991"
 
 #Using day and month of date, since %j option won't work on leap years
-if [[ $(date -d "$birthdate" +%d\ %B) == $(date +%d\ %B) ]] ; then
+if [ "$(date -d "$birthdate" +%d\ %B)" = "$(date +%d\ %B)" ] ; then
 	age=$(($(date +%Y) - $(date -d "$birthdate" +%Y)))
 	suffix="th"
 	case $((age%100)) in
@@ -19,7 +19,7 @@ if [[ $(date -d "$birthdate" +%d\ %B) == $(date +%d\ %B) ]] ; then
 	esac
 
 	echo "Happy $age$suffix birthday, Linux!"
-	if [[ $(command -v espeak) ]] ; then
+	if [ $(command -v espeak) ] ; then
 		espeak "Happy $age$suffix birthday, Linux!"
 	fi
 fi
